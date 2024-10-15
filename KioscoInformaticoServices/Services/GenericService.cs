@@ -30,9 +30,7 @@ namespace KioscoInformaticoServices.Services
             var content = await response.Content.ReadAsStringAsync();
             if (!response.IsSuccessStatusCode)
             {
-                // Log the status code and content for debugging
-                var errorMessage = $"Error: {response.StatusCode}, Content: {content}";
-                throw new ApplicationException(errorMessage);
+                throw new ApplicationException(content?.ToString());
             }
             return JsonSerializer.Deserialize<List<T>>(content, options);
         }
