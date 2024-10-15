@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace KioscoInformaticoBackend.Migrations
 {
     /// <inheritdoc />
-    public partial class InicioProyecto : Migration
+    public partial class KioscoMartinInicio : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -271,9 +271,9 @@ namespace KioscoInformaticoBackend.Migrations
                 columns: new[] { "Id", "ClienteId", "Eliminado", "Fecha", "FormaPago", "Iva", "Total" },
                 values: new object[,]
                 {
-                    { 1, 1, false, new DateTime(2024, 10, 8, 16, 27, 10, 572, DateTimeKind.Local).AddTicks(878), 0, 21m, 3000m },
-                    { 2, 2, false, new DateTime(2024, 10, 8, 16, 27, 10, 572, DateTimeKind.Local).AddTicks(893), 1, 10m, 5000m },
-                    { 3, 3, false, new DateTime(2024, 10, 8, 16, 27, 10, 572, DateTimeKind.Local).AddTicks(894), 2, 21m, 8000m }
+                    { 1, 1, false, new DateTime(2024, 10, 14, 22, 20, 15, 362, DateTimeKind.Local).AddTicks(7167), 0, 21m, 3000m },
+                    { 2, 2, false, new DateTime(2024, 10, 14, 22, 20, 15, 362, DateTimeKind.Local).AddTicks(7178), 1, 10m, 5000m },
+                    { 3, 3, false, new DateTime(2024, 10, 14, 22, 20, 15, 362, DateTimeKind.Local).AddTicks(7180), 2, 21m, 8000m }
                 });
 
             migrationBuilder.InsertData(

@@ -482,7 +482,7 @@ namespace KioscoInformaticoBackend.Migrations
                             Id = 1,
                             ClienteId = 1,
                             Eliminado = false,
-                            Fecha = new DateTime(2024, 10, 10, 13, 40, 9, 103, DateTimeKind.Local).AddTicks(366),
+                            Fecha = new DateTime(2024, 10, 14, 22, 20, 15, 362, DateTimeKind.Local).AddTicks(7167),
                             FormaPago = 0,
                             Iva = 21m,
                             Total = 3000m
@@ -492,7 +492,7 @@ namespace KioscoInformaticoBackend.Migrations
                             Id = 2,
                             ClienteId = 2,
                             Eliminado = false,
-                            Fecha = new DateTime(2024, 10, 10, 13, 40, 9, 103, DateTimeKind.Local).AddTicks(382),
+                            Fecha = new DateTime(2024, 10, 14, 22, 20, 15, 362, DateTimeKind.Local).AddTicks(7178),
                             FormaPago = 1,
                             Iva = 10m,
                             Total = 5000m
@@ -502,7 +502,7 @@ namespace KioscoInformaticoBackend.Migrations
                             Id = 3,
                             ClienteId = 3,
                             Eliminado = false,
-                            Fecha = new DateTime(2024, 10, 10, 13, 40, 9, 103, DateTimeKind.Local).AddTicks(384),
+                            Fecha = new DateTime(2024, 10, 14, 22, 20, 15, 362, DateTimeKind.Local).AddTicks(7180),
                             FormaPago = 2,
                             Iva = 21m,
                             Total = 8000m
