@@ -1,6 +1,8 @@
 ﻿@page "/editarcliente"
 @inject IClienteService ClienteService
+@inject ILocalidadService LocalidadService
 @inject NavigationManager NavigationManager
+
 
 <HeaderPage TitlePage="Editando Cliente" />
 @if (cliente == null)
@@ -28,7 +30,7 @@ else
         </div>
 
         <div class="form-group mb-2">
-            <label for="IdLocalidad">Localidad:</label>
+            <label for="LocalidadId">Localidad:</label>
             <InputSelect id="IdLocalidad" class="form-control" @bind-Value="cliente.LocalidadId">
                 <option value="">Seleccione una Localidad</option>
                 @foreach (var localidad in localidades)
@@ -48,6 +50,7 @@ else
     public int IdClienteEditado { get; set; }
 
     private Cliente? cliente;
+    private List<Localidad> localidades = new List<Localidad>();
 
     protected override async Task OnInitializedAsync()
     {
