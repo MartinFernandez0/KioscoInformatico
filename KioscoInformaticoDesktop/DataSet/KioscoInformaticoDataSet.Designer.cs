@@ -316,7 +316,7 @@ namespace KioscoInformaticoDesktop.DataSet {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class DSLocalidadesDataTable : global::System.Data.TypedTableBase<DSLocalidadesRow> {
             
-            private global::System.Data.DataColumn columnid;
+            private global::System.Data.DataColumn columnId;
             
             private global::System.Data.DataColumn columnNombre;
             
@@ -357,9 +357,9 @@ namespace KioscoInformaticoDesktop.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn idColumn {
+            public global::System.Data.DataColumn IdColumn {
                 get {
-                    return this.columnid;
+                    return this.columnId;
                 }
             }
             
@@ -408,10 +408,10 @@ namespace KioscoInformaticoDesktop.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DSLocalidadesRow AddDSLocalidadesRow(int id, string Nombre) {
+            public DSLocalidadesRow AddDSLocalidadesRow(int Id, string Nombre) {
                 DSLocalidadesRow rowDSLocalidadesRow = ((DSLocalidadesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        id,
+                        Id,
                         Nombre};
                 rowDSLocalidadesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDSLocalidadesRow);
@@ -435,15 +435,15 @@ namespace KioscoInformaticoDesktop.DataSet {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnid = base.Columns["id"];
+                this.columnId = base.Columns["Id"];
                 this.columnNombre = base.Columns["Nombre"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnid);
+                this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId);
                 this.columnNombre = new global::System.Data.DataColumn("Nombre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNombre);
             }
@@ -579,13 +579,13 @@ namespace KioscoInformaticoDesktop.DataSet {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class DBClientesDataTable : global::System.Data.TypedTableBase<DBClientesRow> {
             
-            private global::System.Data.DataColumn columnid;
+            private global::System.Data.DataColumn columnId;
             
             private global::System.Data.DataColumn columnNombre;
             
             private global::System.Data.DataColumn columnDireccion;
             
-            private global::System.Data.DataColumn columnTelefonos;
+            private global::System.Data.DataColumn columnTelefono;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -624,9 +624,9 @@ namespace KioscoInformaticoDesktop.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn idColumn {
+            public global::System.Data.DataColumn IdColumn {
                 get {
-                    return this.columnid;
+                    return this.columnId;
                 }
             }
             
@@ -648,9 +648,9 @@ namespace KioscoInformaticoDesktop.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn TelefonosColumn {
+            public global::System.Data.DataColumn TelefonoColumn {
                 get {
-                    return this.columnTelefonos;
+                    return this.columnTelefono;
                 }
             }
             
@@ -691,13 +691,13 @@ namespace KioscoInformaticoDesktop.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DBClientesRow AddDBClientesRow(int id, string Nombre, string Direccion, string Telefonos) {
+            public DBClientesRow AddDBClientesRow(int Id, string Nombre, string Direccion, string Telefono) {
                 DBClientesRow rowDBClientesRow = ((DBClientesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        id,
+                        Id,
                         Nombre,
                         Direccion,
-                        Telefonos};
+                        Telefono};
                 rowDBClientesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDBClientesRow);
                 return rowDBClientesRow;
@@ -720,23 +720,23 @@ namespace KioscoInformaticoDesktop.DataSet {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnid = base.Columns["id"];
+                this.columnId = base.Columns["Id"];
                 this.columnNombre = base.Columns["Nombre"];
                 this.columnDireccion = base.Columns["Direccion"];
-                this.columnTelefonos = base.Columns["Telefonos"];
+                this.columnTelefono = base.Columns["Telefono"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnid);
+                this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId);
                 this.columnNombre = new global::System.Data.DataColumn("Nombre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNombre);
                 this.columnDireccion = new global::System.Data.DataColumn("Direccion", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDireccion);
-                this.columnTelefonos = new global::System.Data.DataColumn("Telefonos", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTelefonos);
+                this.columnTelefono = new global::System.Data.DataColumn("Telefono", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTelefono);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -879,17 +879,17 @@ namespace KioscoInformaticoDesktop.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int id {
+            public int Id {
                 get {
                     try {
-                        return ((int)(this[this.tableDSLocalidades.idColumn]));
+                        return ((int)(this[this.tableDSLocalidades.IdColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'id\' de la tabla \'DSLocalidades\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Id\' de la tabla \'DSLocalidades\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDSLocalidades.idColumn] = value;
+                    this[this.tableDSLocalidades.IdColumn] = value;
                 }
             }
             
@@ -911,14 +911,14 @@ namespace KioscoInformaticoDesktop.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsidNull() {
-                return this.IsNull(this.tableDSLocalidades.idColumn);
+            public bool IsIdNull() {
+                return this.IsNull(this.tableDSLocalidades.IdColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetidNull() {
-                this[this.tableDSLocalidades.idColumn] = global::System.Convert.DBNull;
+            public void SetIdNull() {
+                this[this.tableDSLocalidades.IdColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -950,17 +950,17 @@ namespace KioscoInformaticoDesktop.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int id {
+            public int Id {
                 get {
                     try {
-                        return ((int)(this[this.tableDBClientes.idColumn]));
+                        return ((int)(this[this.tableDBClientes.IdColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'id\' de la tabla \'DBClientes\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Id\' de la tabla \'DBClientes\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDBClientes.idColumn] = value;
+                    this[this.tableDBClientes.IdColumn] = value;
                 }
             }
             
@@ -998,30 +998,30 @@ namespace KioscoInformaticoDesktop.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Telefonos {
+            public string Telefono {
                 get {
                     try {
-                        return ((string)(this[this.tableDBClientes.TelefonosColumn]));
+                        return ((string)(this[this.tableDBClientes.TelefonoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Telefonos\' de la tabla \'DBClientes\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Telefono\' de la tabla \'DBClientes\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDBClientes.TelefonosColumn] = value;
+                    this[this.tableDBClientes.TelefonoColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsidNull() {
-                return this.IsNull(this.tableDBClientes.idColumn);
+            public bool IsIdNull() {
+                return this.IsNull(this.tableDBClientes.IdColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetidNull() {
-                this[this.tableDBClientes.idColumn] = global::System.Convert.DBNull;
+            public void SetIdNull() {
+                this[this.tableDBClientes.IdColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1050,14 +1050,14 @@ namespace KioscoInformaticoDesktop.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsTelefonosNull() {
-                return this.IsNull(this.tableDBClientes.TelefonosColumn);
+            public bool IsTelefonoNull() {
+                return this.IsNull(this.tableDBClientes.TelefonoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetTelefonosNull() {
-                this[this.tableDBClientes.TelefonosColumn] = global::System.Convert.DBNull;
+            public void SetTelefonoNull() {
+                this[this.tableDBClientes.TelefonoColumn] = global::System.Convert.DBNull;
             }
         }
         
