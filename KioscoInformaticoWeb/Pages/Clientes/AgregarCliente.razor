@@ -1,6 +1,8 @@
 ﻿@page "/agregarcliente"
 @inject IGenericService<Cliente> ClienteService
+@inject IGenericService<Localidad> LocalidadService
 @inject NavigationManager NavigationManager
+@inject SweetAlertService SweetAlert
 
 <HeaderPage TitlePage="Agregando un cliente" />
 
@@ -28,6 +30,16 @@ else
             <InputText id="Telefono" class="form-control" @bind-Value="cliente.Telefonos" />
         </div>
 
+        <div class="form-group">
+            <label for="Localidad">Localidad</label>
+            <InputSelect id="Localidad" class="form-control" @bind-Value="cliente.LocalidadId">
+                @foreach (var localidad in Localidades)
+                {
+                    <option value="@localidad.Id">@localidad.Nombre</option>
+                }
+            </InputSelect>
+        </div>
+
         <button type="submit" class="btn btn-primary">Guardar</button>
         <ValidationSummary />
     </EditForm>
@@ -39,6 +51,7 @@ else
     public int? IdClienteAgregado { get; set; }
 
     private Cliente cliente = new Cliente();
+    private List<Localidad> Localidades;
 
     protected override async Task OnInitializedAsync()
     {
@@ -60,7 +73,7 @@ else
         }
         else
         {
-
+            await ClienteService.UpdateAsync(cliente);
         }
 
         NavigationManager.NavigateTo("/clientes");

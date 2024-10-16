@@ -1,5 +1,7 @@
 ﻿@page "/editarcliente"
 @inject IGenericService<Cliente> ClienteService
+@inject IGenericService<Localidad> LocalidadService
+@inject SweetAlertService SweetAlert
 @inject NavigationManager NavigationManager
 
 <HeaderPage TitlePage="Editando un Cliente" />
@@ -18,6 +20,16 @@ else
             <InputText id="Nombre" class="form-control" @bind-Value="cliente.Nombre" />
         </div>
 
+        <div class="form-group">
+            <label for="Localidad">Localidad</label>
+            <InputSelect id="Localidad" class="form-control" @bind-Value="cliente.LocalidadId">
+                @foreach (var localidad in localidades)
+                {
+                    <option value="@localidad.Id">@localidad.Nombre</option>
+                }
+            </InputSelect>
+        </div>
+
         <button type="submit" class="btn btn-primary">Guardar</button>
         <ValidationSummary />
     </EditForm>
@@ -30,16 +42,31 @@ else
     public int IdClienteEditado { get; set; }
 
     private Cliente? cliente;
+    private List<Localidad> localidades;
 
     protected override async Task OnInitializedAsync()
     {
         cliente = await ClienteService.GetByIdAsync(IdClienteEditado);
-    }
-    
-    private async void Guardar()
-    {
-        await ClienteService.UpdateAsync(cliente);
-        NavigationManager.NavigateTo("/clientes");
+        localidades = await LocalidadService.GetAllAsync();
     }
 
+    private async Task Guardar()
+    {
+        if(cliente.LocalidadId == 0)
+        {
+            await SweetAlert.FireAsync("Advertencia", "Error", SweetAlertIcon.Warning);
+            return;
+        }
+
+        if(IdClienteEditado == null)
+        {
+            await ClienteService.AddAsync(cliente);
+            NavigationManager.NavigateTo("/clientes");
+        }
+        else
+        {
+            await ClienteService.UpdateAsync(cliente);
+            NavigationManager.NavigateTo("/clientes");
+        }
+    }
 }
