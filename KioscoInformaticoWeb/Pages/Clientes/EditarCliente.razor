@@ -27,6 +27,17 @@ else
             <InputText id="Telefonos" class="form-control" @bind-Value="cliente.Telefonos" />
         </div>
 
+        <div class="form-group mb-2">
+            <label for="IdLocalidad">Localidad:</label>
+            <InputSelect id="IdLocalidad" class="form-control" @bind-Value="cliente.LocalidadId">
+                <option value="">Seleccione una Localidad</option>
+                @foreach (var localidad in localidades)
+                {
+                    <option value="@localidad.Id">@localidad.Nombre</option>
+                }
+            </InputSelect>
+        </div>
+
         <button type="submit" class="btn btn-primary mb-2">Guardar</button>
     </EditForm>
 }
