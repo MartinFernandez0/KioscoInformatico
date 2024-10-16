@@ -1,10 +1,10 @@
-﻿@page "/nuevocliente"
+﻿@page "/nuevoeditarcliente"
 @inject IClienteService ClienteService
 @inject ILocalidadService LocalidadService
 @inject NavigationManager NavigationManager
 @inject SweetAlertService SweetAlert
 
-<HeaderPage TitlePage="Nuevo Cliente" />
+<HeaderPage TitlePage="Nuevo Editar Cliente" />
 @if (cliente == null || localidades == null)
 {
     <p><em>Cargando...</em></p>
@@ -49,7 +49,7 @@ else
     [Parameter]
     public int IdClienteEditado { get; set; }
 
-    private Cliente cliente = new Cliente();
+    private Cliente cliente;
     List<Localidad> localidades = new List<Localidad>();
 
     protected override async Task OnInitializedAsync()

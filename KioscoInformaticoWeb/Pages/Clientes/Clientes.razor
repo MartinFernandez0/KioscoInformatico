@@ -33,7 +33,7 @@ else
                     <td>@cliente.Localidad</td>
 
                     <td>
-                        <a href="/editarcliente?idClienteEditado=@cliente.Id" class="btn btn-primary">Editar</a>
+                        <a href="/nuevoeditarcliente?idClienteEditado=@cliente.Id" class="btn btn-primary">Editar</a>
                     </td>
                     <td>
                         <button title="Eliminar" @onclick="()=>Eliminar(cliente)" class="btn btn-danger">Eliminar</button>
@@ -56,7 +56,7 @@ else
 
     public void AgregarCliente()
     {
-        NavigationManager.NavigateTo("/nuevocliente");
+        NavigationManager.NavigateTo("/nuevoeditarcliente");
     }
 
     private async Task Eliminar(Cliente cliente)
