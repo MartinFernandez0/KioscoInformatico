@@ -1,42 +1,30 @@
-﻿using KioscoInformaticoApp.Utils;
+﻿using CommunityToolkit.Mvvm.Messaging;
+using KioscoInformaticoApp.Class;
+using KioscoInformaticoServices.Models;
+using KioscoInformaticoServices.Services;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Collections.ObjectModel;
-using KioscoInformaticoServices.Models;
-using KioscoInformaticoServices.Services;
+using System.Windows.Input;
 
 namespace KioscoInformaticoApp.ViewModels
 {
     public class ProductosViewModel : ObjectNotification
     {
-        private GenericService<Producto> productoService = new GenericService<Producto>();
-
+		private GenericService<Producto> productoService= new GenericService<Producto>();
         private string filterProducts;
-        public string FilterProducts
-        {
-            get { return filterProducts; }
-            set
-            {
-                filterProducts = value;
-                OnPropertyChanged();
-                FiltarProductos();
-            }
-        }
- 
-        private ObservableCollection<Producto> productos;
-        public ObservableCollection<Producto> Productos
-        {
-            get { return productos; }
-            set
-            {
-                productos = value;
-                OnPropertyChanged();
-            }
-        }
 
+		public string FilterProducts
+		{
+			get { return filterProducts; }
+			set { filterProducts = value;
+                OnPropertyChanged();
+                _ = FiltrarProductos();
+            }
+		}
         //porque hacemos esto, porque lo dijo Gabriel
         //https://chatgpt.com/share/9ab527ab-34a6-426c-b7a7-362c38e460a7
         private bool _isRefreshing;
@@ -49,44 +37,49 @@ namespace KioscoInformaticoApp.ViewModels
                 OnPropertyChanged();
             }
         }
+        private ObservableCollection<Producto> productos;
 
-        private List<Producto>? ProductListToFilter;
-
-        private bool activityStart;
-        public bool ActivityStart
-        {
-            get { return activityStart; }
-            set
-            {
-                activityStart = value;
-                OnPropertyChanged();
+		public ObservableCollection<Producto> Productos
+		{
+			get { return productos; }
+			set { productos = value; 
+			OnPropertyChanged();
             }
-        }
+		}
+        private List<Producto>? productosListToFilter;
 
-        public Command ObtenerProductosCommand { get; set; }
-        public Command FiltrarProductosCommand { get; set; }
+        
+        public Command ObtenerProductosCommand { get; }
+        public Command FiltrarProductosCommand { get; }
+        public Command AgregarProductoCommand { get; }
 
         public ProductosViewModel()
         {
             ObtenerProductosCommand = new Command(async () => await ObtenerProductos());
-            FiltrarProductosCommand = new Command(async () =>  await FiltarProductos());
+            FiltrarProductosCommand = new Command(async () => await FiltrarProductos());
+            AgregarProductoCommand = new Command(async () => await AgregarProducto());
             ObtenerProductos();
+
         }
 
-        private async Task FiltarProductos()
+        private async Task AgregarProducto()
         {
-            var prductosFiltrados = ProductListToFilter.Where(p => p.Nombre.ToUpper().Contains(FilterProducts.ToUpper()));
-            Productos = new ObservableCollection<Producto>(prductosFiltrados);
+            WeakReferenceMessenger.Default.Send(new Message("AgregarProducto"));
         }
 
-        private async Task ObtenerProductos()
+        public async Task FiltrarProductos()
+        {
+            var productosFiltrados = productosListToFilter.Where(p => p.Nombre.ToUpper().Contains(filterProducts.ToUpper()));
+            Productos = new ObservableCollection<Producto>(productosFiltrados);
+        }
+
+        public async Task ObtenerProductos()
         {
             FilterProducts = string.Empty;
-            ActivityStart = true;
-            ProductListToFilter = await productoService.GetAllAsync();
-            Productos = new ObservableCollection<Producto>(ProductListToFilter);
-            ActivityStart = false;
+            IsRefreshing = true; // Asegúrate de que IsRefreshing se establezca en true al inicio
+            productosListToFilter = await productoService.GetAllAsync();
+            Productos = new ObservableCollection<Producto>(productosListToFilter);
+            IsRefreshing = false; // Establece IsRefreshing en false al final
         }
-
     }
 }

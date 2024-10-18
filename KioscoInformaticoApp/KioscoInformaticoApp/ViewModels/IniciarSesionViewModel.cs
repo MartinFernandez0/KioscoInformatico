@@ -1,4 +1,5 @@
-﻿using KioscoInformaticoApp.Utils;
+﻿using CommunityToolkit.Mvvm.Messaging;
+using KioscoInformaticoApp.Class;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,32 +14,37 @@ namespace KioscoInformaticoApp.ViewModels
 		public string Email
 		{
 			get { return email; }
-			set { email = value; OnPropertyChanged(); IniciarSesionCommand.ChangeCanExecute();
-			}
+			set { email = value;
+				OnPropertyChanged();
+				IniciarSesionCommand.ChangeCanExecute();
+            }
 		}
 
 		private string password;
 		public string Password
-        {
-            get { return password; }
-            set { password = value; OnPropertyChanged(); IniciarSesionCommand.ChangeCanExecute();
+		{
+			get { return password; }
+			set { password = value;
+				OnPropertyChanged();
+                IniciarSesionCommand.ChangeCanExecute();
             }
-        } 
+		}
 
 		private bool recordarContraseña;
 		public bool RecordarContraseña
-        {
-            get { return recordarContraseña; }
-            set { recordarContraseña = value; OnPropertyChanged();
-            }
-        }
+		{
+			get { return recordarContraseña; }
+			set { recordarContraseña = value;
+				OnPropertyChanged();
+			}
+		}
 
-        public Command IniciarSesionCommand { get; set; }
-        public Command RegistrarseCommand { get; set; }
+        public Command IniciarSesionCommand { get; }
+        public Command RegistrarseCommand { get; }
 
         public IniciarSesionViewModel()
         {
-            IniciarSesionCommand = new Command(IniciarSesion, PermitirIniciarSesion);
+			IniciarSesionCommand= new Command(IniciarSesion,PermitirIniciarSesion);
         }
 
         private bool PermitirIniciarSesion(object arg)
@@ -48,7 +54,7 @@ namespace KioscoInformaticoApp.ViewModels
 
         private void IniciarSesion(object obj)
         {
-            App.Current.MainPage.DisplayAlert("Iniciar Sesion", "Iniciando Sesion", "OK");
+            WeakReferenceMessenger.Default.Send(new Message("AbrirProductos"));
         }
     }
 }
