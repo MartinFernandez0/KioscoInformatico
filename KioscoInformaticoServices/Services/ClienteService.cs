@@ -1,11 +1,6 @@
 ﻿using KioscoInformaticoServices.Interfaces;
 using KioscoInformaticoServices.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace KioscoInformaticoServices.Services
 {
@@ -19,7 +14,7 @@ namespace KioscoInformaticoServices.Services
             {
                 throw new ApplicationException(content?.ToString());
             }
-            return JsonSerializer.Deserialize<List<Cliente>>(content, options); ;
+            return JsonSerializer.Deserialize<List<Cliente>>(content, options);
         }
     }
 }
