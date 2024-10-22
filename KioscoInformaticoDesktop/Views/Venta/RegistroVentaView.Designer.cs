@@ -1,6 +1,6 @@
 ﻿namespace KioscoInformaticoDesktop.GenerateCompraView
 {
-    partial class RegistroVenta
+    partial class RegistroVentaView
     {
         /// <summary>
         /// Required designer variable.
@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             btnAgregar = new Button();
-            comboBoxLocalidades = new ComboBox();
-            comboBox1 = new ComboBox();
+            comboBoxCliente = new ComboBox();
+            comboBoxFormadePago = new ComboBox();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -49,7 +49,8 @@
             textBox7 = new TextBox();
             button1 = new Button();
             numericUpDown1 = new NumericUpDown();
-            comboBox2 = new ComboBox();
+            comboBoxProducto = new ComboBox();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
@@ -63,23 +64,23 @@
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
             // 
-            // comboBoxLocalidades
+            // comboBoxCliente
             // 
-            comboBoxLocalidades.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxLocalidades.FormattingEnabled = true;
-            comboBoxLocalidades.Location = new Point(260, 65);
-            comboBoxLocalidades.Name = "comboBoxLocalidades";
-            comboBoxLocalidades.Size = new Size(198, 23);
-            comboBoxLocalidades.TabIndex = 26;
+            comboBoxCliente.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxCliente.FormattingEnabled = true;
+            comboBoxCliente.Location = new Point(260, 65);
+            comboBoxCliente.Name = "comboBoxCliente";
+            comboBoxCliente.Size = new Size(198, 23);
+            comboBoxCliente.TabIndex = 26;
             // 
-            // comboBox1
+            // comboBoxFormadePago
             // 
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(37, 65);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(172, 23);
-            comboBox1.TabIndex = 27;
+            comboBoxFormadePago.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxFormadePago.FormattingEnabled = true;
+            comboBoxFormadePago.Location = new Point(37, 65);
+            comboBoxFormadePago.Name = "comboBoxFormadePago";
+            comboBoxFormadePago.Size = new Size(172, 23);
+            comboBoxFormadePago.TabIndex = 27;
             // 
             // label1
             // 
@@ -229,22 +230,30 @@
             numericUpDown1.Size = new Size(120, 23);
             numericUpDown1.TabIndex = 48;
             // 
-            // comboBox2
+            // comboBoxProducto
             // 
-            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(37, 137);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(172, 23);
-            comboBox2.TabIndex = 49;
+            comboBoxProducto.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxProducto.FormattingEnabled = true;
+            comboBoxProducto.Location = new Point(37, 137);
+            comboBoxProducto.Name = "comboBoxProducto";
+            comboBoxProducto.Size = new Size(172, 23);
+            comboBoxProducto.TabIndex = 49;
             // 
-            // CompraProducto
+            // panel1
+            // 
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Location = new Point(12, 94);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(821, 83);
+            panel1.TabIndex = 50;
+            // 
+            // RegistroVenta
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.None;
             ClientSize = new Size(858, 479);
-            Controls.Add(comboBox2);
+            Controls.Add(comboBoxProducto);
             Controls.Add(numericUpDown1);
             Controls.Add(button1);
             Controls.Add(label9);
@@ -263,11 +272,12 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(comboBox1);
-            Controls.Add(comboBoxLocalidades);
+            Controls.Add(comboBoxFormadePago);
+            Controls.Add(comboBoxCliente);
             Controls.Add(btnAgregar);
+            Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.SizableToolWindow;
-            Name = "CompraProducto";
+            Name = "RegistroVenta";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Ventas";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -279,8 +289,8 @@
         #endregion
 
         private Button btnAgregar;
-        private ComboBox comboBoxLocalidades;
-        private ComboBox comboBox1;
+        private ComboBox comboBoxCliente;
+        private ComboBox comboBoxFormadePago;
         private Label label1;
         private Label label2;
         private Label label3;
@@ -299,6 +309,7 @@
         private TextBox textBox7;
         private Button button1;
         private NumericUpDown numericUpDown1;
-        private ComboBox comboBox2;
+        private ComboBox comboBoxProducto;
+        private Panel panel1;
     }
 }

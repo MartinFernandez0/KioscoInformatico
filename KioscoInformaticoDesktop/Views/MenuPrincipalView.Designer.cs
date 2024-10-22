@@ -39,6 +39,7 @@
             iconMenuItem2 = new FontAwesome.Sharp.IconMenuItem();
             MenuItemLocalidadesReport = new FontAwesome.Sharp.IconMenuItem();
             MenuItemClientesReport = new FontAwesome.Sharp.IconMenuItem();
+            MenuItemVentas = new FontAwesome.Sharp.IconMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -56,6 +57,7 @@
             // 
             // iconMenuItem1
             // 
+            iconMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { MenuItemVentas });
             iconMenuItem1.IconChar = FontAwesome.Sharp.IconChar.House;
             iconMenuItem1.IconColor = Color.Black;
             iconMenuItem1.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -149,7 +151,7 @@
             MenuItemLocalidadesReport.IconColor = Color.Black;
             MenuItemLocalidadesReport.IconFont = FontAwesome.Sharp.IconFont.Auto;
             MenuItemLocalidadesReport.Name = "MenuItemLocalidadesReport";
-            MenuItemLocalidadesReport.Size = new Size(184, 26);
+            MenuItemLocalidadesReport.Size = new Size(136, 22);
             MenuItemLocalidadesReport.Text = "Localidades";
             MenuItemLocalidadesReport.Click += MenuItemLocalidadesReport_Click;
             // 
@@ -159,9 +161,19 @@
             MenuItemClientesReport.IconColor = Color.Black;
             MenuItemClientesReport.IconFont = FontAwesome.Sharp.IconFont.Auto;
             MenuItemClientesReport.Name = "MenuItemClientesReport";
-            MenuItemClientesReport.Size = new Size(184, 26);
+            MenuItemClientesReport.Size = new Size(136, 22);
             MenuItemClientesReport.Text = "Clientes";
             MenuItemClientesReport.Click += MenuItemClientesReport_Click;
+            // 
+            // MenuItemVentas
+            // 
+            MenuItemVentas.IconChar = FontAwesome.Sharp.IconChar.None;
+            MenuItemVentas.IconColor = Color.Black;
+            MenuItemVentas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            MenuItemVentas.Name = "MenuItemVentas";
+            MenuItemVentas.Size = new Size(184, 26);
+            MenuItemVentas.Text = "Ventas Registros";
+            MenuItemVentas.Click += MenuItemVentas_Click;
             // 
             // MenuPrincipalView
             // 
@@ -193,5 +205,6 @@
         private FontAwesome.Sharp.IconMenuItem iconMenuItem2;
         private FontAwesome.Sharp.IconMenuItem MenuItemLocalidadesReport;
         private FontAwesome.Sharp.IconMenuItem MenuItemClientesReport;
+        private FontAwesome.Sharp.IconMenuItem MenuItemVentas;
     }
 }

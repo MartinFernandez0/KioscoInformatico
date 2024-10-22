@@ -1,3 +1,4 @@
+using KioscoInformaticoDesktop.GenerateCompraView;
 using KioscoInformaticoDesktop.ViewReports;
 using KioscoInformaticoDesktop.Views;
 
@@ -53,6 +54,12 @@ namespace KioscoInformaticoDesktop
         {
             ClientesViewReport clientesViewReport = new ClientesViewReport();
             clientesViewReport.ShowDialog();
+        }
+
+        private void MenuItemVentas_Click(object sender, EventArgs e)
+        {
+           RegistroVentaView registroVentaView = new RegistroVentaView();
+            registroVentaView.ShowDialog();
         }
     }
 }
