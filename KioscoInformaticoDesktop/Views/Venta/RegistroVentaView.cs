@@ -1,4 +1,5 @@
 ﻿using KioscoInformaticoServices.Enums;
+using KioscoInformaticoServices.Models;
 using KioscoInformaticoServices.Services;
 using Nest;
 using System;
@@ -23,10 +24,10 @@ namespace KioscoInformaticoDesktop.GenerateCompraView
         public RegistroVentaView()
         {
             InitializeComponent();
-            CargarCombos();
+            AjustePantalla();
         }
 
-        private async void CargarCombos()
+        private async void AjustePantalla()
         {
             Stopwatch relog = new Stopwatch();
             relog.Start();
@@ -43,13 +44,35 @@ namespace KioscoInformaticoDesktop.GenerateCompraView
 
             comboBoxProducto.DisplayMember = "Nombre";
             comboBoxProducto.ValueMember = "Id";
-            comboBoxProducto.SelectedIndex = 0;
+            comboBoxProducto.SelectedIndex = -1;
 
             comboBoxFormadePago.DataSource = Enum.GetValues(typeof(FormaDePagoEnum));
 
             relog.Stop();
             Debug.Print($"Tiempo de carga de combos: {relog.ElapsedMilliseconds} ms");
 
+            numericPrecio.Value = 0;
+            numericCantidad.Value = 1;
+
+        }
+
+        private void comboBoxProducto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxProducto.SelectedIndex != -1)
+            {
+                Producto producto = (Producto)comboBoxProducto.SelectedItem;
+                numericPrecio.Value = producto.Precio;
+            }
+        }
+
+        private void numericCantidad_ValueChanged(object sender, EventArgs e)
+        {
+            numericSubtotal.Value = numericPrecio.Value * numericCantidad.Value;
+        }
+
+        private void numericPrecio_ValueChanged(object sender, EventArgs e)
+        {
+            numericSubtotal.Value = numericPrecio.Value * numericCantidad.Value;
         }
     }
 }

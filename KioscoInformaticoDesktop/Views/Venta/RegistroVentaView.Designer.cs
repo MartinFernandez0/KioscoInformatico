@@ -34,10 +34,8 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            textBox2 = new TextBox();
             label4 = new Label();
             label5 = new Label();
-            textBox4 = new TextBox();
             label6 = new Label();
             dateTimePicker1 = new DateTimePicker();
             dataGridView1 = new DataGridView();
@@ -48,11 +46,16 @@
             label9 = new Label();
             textBox7 = new TextBox();
             button1 = new Button();
-            numericUpDown1 = new NumericUpDown();
             comboBoxProducto = new ComboBox();
             panel1 = new Panel();
+            numericSubtotal = new NumericUpDown();
+            numericCantidad = new NumericUpDown();
+            numericPrecio = new NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericSubtotal).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericCantidad).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericPrecio).BeginInit();
             SuspendLayout();
             // 
             // btnAgregar
@@ -109,13 +112,6 @@
             label3.TabIndex = 31;
             label3.Text = "Producto";
             // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(260, 136);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(97, 23);
-            textBox2.TabIndex = 32;
-            // 
             // label4
             // 
             label4.AutoSize = true;
@@ -133,14 +129,6 @@
             label5.Size = new Size(55, 15);
             label5.TabIndex = 35;
             label5.Text = "Cantidad";
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(573, 130);
-            textBox4.Multiline = true;
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(75, 34);
-            textBox4.TabIndex = 36;
             // 
             // label6
             // 
@@ -223,13 +211,6 @@
             button1.Text = "Finalizar Venta";
             button1.UseVisualStyleBackColor = true;
             // 
-            // numericUpDown1
-            // 
-            numericUpDown1.Location = new Point(419, 137);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(120, 23);
-            numericUpDown1.TabIndex = 48;
-            // 
             // comboBoxProducto
             // 
             comboBoxProducto.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -238,23 +219,59 @@
             comboBoxProducto.Name = "comboBoxProducto";
             comboBoxProducto.Size = new Size(172, 23);
             comboBoxProducto.TabIndex = 49;
+            comboBoxProducto.SelectedIndexChanged += comboBoxProducto_SelectedIndexChanged;
             // 
             // panel1
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(numericSubtotal);
+            panel1.Controls.Add(numericCantidad);
+            panel1.Controls.Add(numericPrecio);
             panel1.Location = new Point(12, 94);
             panel1.Name = "panel1";
             panel1.Size = new Size(821, 83);
             panel1.TabIndex = 50;
             // 
-            // RegistroVenta
+            // numericSubtotal
+            // 
+            numericSubtotal.DecimalPlaces = 2;
+            numericSubtotal.Enabled = false;
+            numericSubtotal.Location = new Point(532, 42);
+            numericSubtotal.Maximum = new decimal(new int[] { -1486618625, 232830643, 0, 0 });
+            numericSubtotal.Name = "numericSubtotal";
+            numericSubtotal.Size = new Size(120, 23);
+            numericSubtotal.TabIndex = 51;
+            numericSubtotal.TextAlign = HorizontalAlignment.Right;
+            // 
+            // numericCantidad
+            // 
+            numericCantidad.Location = new Point(412, 42);
+            numericCantidad.Maximum = new decimal(new int[] { -1486618625, 232830643, 0, 0 });
+            numericCantidad.Name = "numericCantidad";
+            numericCantidad.Size = new Size(69, 23);
+            numericCantidad.TabIndex = 50;
+            numericCantidad.TextAlign = HorizontalAlignment.Center;
+            numericCantidad.ValueChanged += numericCantidad_ValueChanged;
+            // 
+            // numericPrecio
+            // 
+            numericPrecio.DecimalPlaces = 2;
+            numericPrecio.Enabled = false;
+            numericPrecio.Location = new Point(247, 42);
+            numericPrecio.Maximum = new decimal(new int[] { -1486618625, 232830643, 0, 0 });
+            numericPrecio.Name = "numericPrecio";
+            numericPrecio.Size = new Size(120, 23);
+            numericPrecio.TabIndex = 49;
+            numericPrecio.TextAlign = HorizontalAlignment.Right;
+            numericPrecio.ValueChanged += numericPrecio_ValueChanged;
+            // 
+            // RegistroVentaView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.None;
             ClientSize = new Size(858, 479);
             Controls.Add(comboBoxProducto);
-            Controls.Add(numericUpDown1);
             Controls.Add(button1);
             Controls.Add(label9);
             Controls.Add(textBox7);
@@ -265,10 +282,8 @@
             Controls.Add(dataGridView1);
             Controls.Add(dateTimePicker1);
             Controls.Add(label6);
-            Controls.Add(textBox4);
             Controls.Add(label5);
             Controls.Add(label4);
-            Controls.Add(textBox2);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -277,11 +292,14 @@
             Controls.Add(btnAgregar);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.SizableToolWindow;
-            Name = "RegistroVenta";
+            Name = "RegistroVentaView";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Ventas";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)numericSubtotal).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericCantidad).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericPrecio).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -294,10 +312,8 @@
         private Label label1;
         private Label label2;
         private Label label3;
-        private TextBox textBox2;
         private Label label4;
         private Label label5;
-        private TextBox textBox4;
         private Label label6;
         private DateTimePicker dateTimePicker1;
         private DataGridView dataGridView1;
@@ -308,8 +324,10 @@
         private Label label9;
         private TextBox textBox7;
         private Button button1;
-        private NumericUpDown numericUpDown1;
         private ComboBox comboBoxProducto;
         private Panel panel1;
+        private NumericUpDown numericPrecio;
+        private NumericUpDown numericSubtotal;
+        private NumericUpDown numericCantidad;
     }
 }
