@@ -18,14 +18,11 @@ namespace KioscoInformaticoServices.Services
             var remoto = Properties.Resources.Remoto;
 
             var urlApi = Properties.Resources.UrlApi;
-            if (remoto == "false")
+            if (remoto == "False")
             {
                 urlApi = Properties.Resources.UrlApiLocal;
             }
-            else
-            {
                 this._endpoint = urlApi + ApiEndpoints.GetEndpoint(typeof(T).Name);
-            }
         }
 
         public async Task<List<T>?> GetAllAsync()
