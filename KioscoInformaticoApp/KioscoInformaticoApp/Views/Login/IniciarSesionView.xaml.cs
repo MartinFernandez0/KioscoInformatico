@@ -34,5 +34,9 @@ public partial class IniciarSesionView : ContentPage
         {
             await Navigation.PopAsync();
         }
+        if (mensaje.Value == "EditarProducto")
+        {
+            await Navigation.PushAsync(new AddEditProductoView(mensaje.ProductoAEditar));
+        }
     }
 }

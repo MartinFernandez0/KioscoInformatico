@@ -10,23 +10,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace KioscoInformaticoApp.ViewModels
+namespace KioscoInformaticoApp.ViewModels.Productos
 {
     public class ProductosViewModel : ObjectNotification
     {
-		private GenericService<Producto> productoService= new GenericService<Producto>();
+        private GenericService<Producto> productoService = new GenericService<Producto>();
         private string filterProducts;
 
-		public string FilterProducts
-		{
-			get { return filterProducts; }
-			set { filterProducts = value;
+        public string FilterProducts
+        {
+            get { return filterProducts; }
+            set
+            {
+                filterProducts = value;
                 OnPropertyChanged();
                 _ = FiltrarProductos();
             }
-		}
-        //porque hacemos esto, porque lo dijo Gabriel
-        //https://chatgpt.com/share/9ab527ab-34a6-426c-b7a7-362c38e460a7
+        }
         private bool _isRefreshing;
         public bool IsRefreshing
         {
@@ -39,27 +39,55 @@ namespace KioscoInformaticoApp.ViewModels
         }
         private ObservableCollection<Producto> productos;
 
-		public ObservableCollection<Producto> Productos
-		{
-			get { return productos; }
-			set { productos = value; 
-			OnPropertyChanged();
+        public ObservableCollection<Producto> Productos
+        {
+            get { return productos; }
+            set
+            {
+                productos = value;
+                OnPropertyChanged();
             }
-		}
+        }
         private List<Producto>? productosListToFilter;
 
-        
+        // Button Open Productos Selected
+        private Producto selectedProducto;
+
+        public Producto SelectedProducto
+        {
+            get { return selectedProducto; }
+            set
+            {
+                selectedProducto = value;
+                OnPropertyChanged();
+                EditarProductoCommand.ChangeCanExecute();
+            }
+        }
+
         public Command ObtenerProductosCommand { get; }
         public Command FiltrarProductosCommand { get; }
         public Command AgregarProductoCommand { get; }
+
+        public Command EditarProductoCommand { get; }
 
         public ProductosViewModel()
         {
             ObtenerProductosCommand = new Command(async () => await ObtenerProductos());
             FiltrarProductosCommand = new Command(async () => await FiltrarProductos());
             AgregarProductoCommand = new Command(async () => await AgregarProducto());
+            EditarProductoCommand = new Command(async (obj) => await EditarProducto(), PermitirEditar);
             ObtenerProductos();
 
+        }
+
+        private bool PermitirEditar(object arg)
+        {
+            return SelectedProducto != null;
+        }
+
+        private async Task EditarProducto()
+        {
+            WeakReferenceMessenger.Default.Send(new Message("EditarProducto") { ProductoAEditar = SelectedProducto });
         }
 
         private async Task AgregarProducto()

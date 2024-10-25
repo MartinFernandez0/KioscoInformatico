@@ -40,7 +40,7 @@ namespace KioscoInformaticoDesktop.ViewReports
         {
             reporte.LocalReport.ReportEmbeddedResource = "KioscoInformaticoDesktop.Reports.FacturaVentaReporte.rdlc";
 
-            var venta = new
+            var venta = new 
             {
                 id = nuevaVenta.Id,
                 fecha = nuevaVenta.Fecha,

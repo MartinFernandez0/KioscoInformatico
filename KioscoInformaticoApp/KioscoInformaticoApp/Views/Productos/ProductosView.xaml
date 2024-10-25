@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewModels="clr-namespace:KioscoInformaticoApp.ViewModels"
+             xmlns:viewModels="clr-namespace:KioscoInformaticoApp.ViewModels.Productos"
              x:Class="KioscoInformaticoApp.Views.ProductosView"
              Title="ProductosView">
     <ContentPage.BindingContext>
@@ -23,6 +23,7 @@
         
             <ListView 
                 ItemsSource="{Binding Productos}"
+                SelectedItem="{Binding SelectedProducto}"
                 SelectionMode="Single"
                 IsPullToRefreshEnabled="True"
                 RefreshCommand="{Binding ObtenerProductosCommand}"
@@ -40,7 +41,19 @@
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 Margin="0,10,0,10"/>
-        
+
+            <Button Text="Ver productos en oferta"
+                Command="{Binding VerProductosEnOfertaCommand}"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Margin="0,10,0,10"/>
+
+            <Button Text="Editar producto"
+                Command="{Binding EditarProductoCommand}"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Margin="0,10,0,10"/>
+
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
