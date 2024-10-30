@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace KioscoInformaticoBackend.Migrations
 {
     /// <inheritdoc />
-    public partial class KioscoMartinInicio : Migration
+    public partial class NuevaAct : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -162,10 +162,10 @@ namespace KioscoInformaticoBackend.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    PrecioUnitario = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
+                    Cantidad = table.Column<int>(type: "int", nullable: false),
                     VentaId = table.Column<int>(type: "int", nullable: false),
                     ProductoId = table.Column<int>(type: "int", nullable: false),
-                    Cantidad = table.Column<int>(type: "int", nullable: false),
-                    PrecioUnitario = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
                     Eliminado = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
@@ -195,6 +195,7 @@ namespace KioscoInformaticoBackend.Migrations
                     ProductoId = table.Column<int>(type: "int", nullable: false),
                     PrecioUnitario = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
                     Cantidad = table.Column<int>(type: "int", nullable: false),
+                    Subtotal = table.Column<int>(type: "int", nullable: false),
                     CompraId = table.Column<int>(type: "int", nullable: false),
                     Eliminado = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
@@ -271,19 +272,19 @@ namespace KioscoInformaticoBackend.Migrations
                 columns: new[] { "Id", "ClienteId", "Eliminado", "Fecha", "FormaPago", "Iva", "Total" },
                 values: new object[,]
                 {
-                    { 1, 1, false, new DateTime(2024, 10, 14, 22, 20, 15, 362, DateTimeKind.Local).AddTicks(7167), 0, 21m, 3000m },
-                    { 2, 2, false, new DateTime(2024, 10, 14, 22, 20, 15, 362, DateTimeKind.Local).AddTicks(7178), 1, 10m, 5000m },
-                    { 3, 3, false, new DateTime(2024, 10, 14, 22, 20, 15, 362, DateTimeKind.Local).AddTicks(7180), 2, 21m, 8000m }
+                    { 1, 1, false, new DateTime(2024, 10, 30, 15, 40, 7, 665, DateTimeKind.Local).AddTicks(6938), 0, 21m, 3000m },
+                    { 2, 2, false, new DateTime(2024, 10, 30, 15, 40, 7, 665, DateTimeKind.Local).AddTicks(6952), 1, 10m, 5000m },
+                    { 3, 3, false, new DateTime(2024, 10, 30, 15, 40, 7, 665, DateTimeKind.Local).AddTicks(6954), 2, 21m, 8000m }
                 });
 
             migrationBuilder.InsertData(
                 table: "Detallescompras",
-                columns: new[] { "Id", "Cantidad", "CompraId", "Eliminado", "PrecioUnitario", "ProductoId" },
+                columns: new[] { "Id", "Cantidad", "CompraId", "Eliminado", "PrecioUnitario", "ProductoId", "Subtotal" },
                 values: new object[,]
                 {
-                    { 1, 1, 1, false, 2650m, 1 },
-                    { 2, 2, 2, false, 2450m, 2 },
-                    { 3, 1, 3, false, 2550m, 3 }
+                    { 1, 1, 1, false, 2650m, 1, 0 },
+                    { 2, 2, 2, false, 2450m, 2, 0 },
+                    { 3, 1, 3, false, 2550m, 3, 0 }
                 });
 
             migrationBuilder.InsertData(

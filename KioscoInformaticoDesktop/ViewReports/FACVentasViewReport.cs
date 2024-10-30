@@ -38,9 +38,9 @@ namespace KioscoInformaticoDesktop.ViewReports
 
         private void FACVentasViewReport_Load(object sender, EventArgs e)
         {
-            reporte.LocalReport.ReportEmbeddedResource = "KioscoInformaticoDesktop.Reports.FacturaVentaReporte.rdlc";
+            reporte.LocalReport.ReportEmbeddedResource = "KioscoInformaticoDesktop.Reports.FacturaVentaReport.rdlc";
 
-            var venta = new 
+            var venta = new
             {
                 id = nuevaVenta.Id,
                 fecha = nuevaVenta.Fecha,
@@ -68,6 +68,7 @@ namespace KioscoInformaticoDesktop.ViewReports
             reporte.ZoomPercent = 100;
 
             reporte.RefreshReport();
+
         }
     }
 }

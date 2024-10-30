@@ -9,6 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="GenerateCompraView\**" />
+    <EmbeddedResource Remove="GenerateCompraView\**" />
+    <None Remove="GenerateCompraView\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Reports\ClientesReport.rdlc" />
     <None Remove="Reports\FacturaVentaReporte.rdlc" />
     <None Remove="Reports\LocalidadesReport.rdlc" />
@@ -16,7 +22,6 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Reports\ClientesReport.rdlc" />
-    <EmbeddedResource Include="Reports\FacturaVentaReporte.rdlc" />
     <EmbeddedResource Include="Reports\LocalidadesReport.rdlc" />
   </ItemGroup>
 
@@ -74,10 +79,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="GenerateCompraView\" />
   </ItemGroup>
 
 </Project>

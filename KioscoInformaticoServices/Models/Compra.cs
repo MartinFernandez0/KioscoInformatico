@@ -21,4 +21,6 @@ public partial class Compra
     public virtual Proveedor? Proveedor { get; set; }
 
     public bool Eliminado { get; set; } = false;
+
+    public virtual ICollection<DetalleCompra> Detallecompra { get; set; } = new List<DetalleCompra>();
 }

@@ -17,7 +17,7 @@ namespace KioscoInformaticoBackend.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.8")
+                .HasAnnotation("ProductVersion", "8.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
@@ -178,6 +178,9 @@ namespace KioscoInformaticoBackend.Migrations
                     b.Property<int>("ProductoId")
                         .HasColumnType("int");
 
+                    b.Property<int>("Subtotal")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CompraId");
@@ -194,7 +197,8 @@ namespace KioscoInformaticoBackend.Migrations
                             CompraId = 1,
                             Eliminado = false,
                             PrecioUnitario = 2650m,
-                            ProductoId = 1
+                            ProductoId = 1,
+                            Subtotal = 0
                         },
                         new
                         {
@@ -203,7 +207,8 @@ namespace KioscoInformaticoBackend.Migrations
                             CompraId = 2,
                             Eliminado = false,
                             PrecioUnitario = 2450m,
-                            ProductoId = 2
+                            ProductoId = 2,
+                            Subtotal = 0
                         },
                         new
                         {
@@ -212,7 +217,8 @@ namespace KioscoInformaticoBackend.Migrations
                             CompraId = 3,
                             Eliminado = false,
                             PrecioUnitario = 2550m,
-                            ProductoId = 3
+                            ProductoId = 3,
+                            Subtotal = 0
                         });
                 });
 
@@ -482,7 +488,7 @@ namespace KioscoInformaticoBackend.Migrations
                             Id = 1,
                             ClienteId = 1,
                             Eliminado = false,
-                            Fecha = new DateTime(2024, 10, 14, 22, 20, 15, 362, DateTimeKind.Local).AddTicks(7167),
+                            Fecha = new DateTime(2024, 10, 30, 15, 40, 7, 665, DateTimeKind.Local).AddTicks(6938),
                             FormaPago = 0,
                             Iva = 21m,
                             Total = 3000m
@@ -492,7 +498,7 @@ namespace KioscoInformaticoBackend.Migrations
                             Id = 2,
                             ClienteId = 2,
                             Eliminado = false,
-                            Fecha = new DateTime(2024, 10, 14, 22, 20, 15, 362, DateTimeKind.Local).AddTicks(7178),
+                            Fecha = new DateTime(2024, 10, 30, 15, 40, 7, 665, DateTimeKind.Local).AddTicks(6952),
                             FormaPago = 1,
                             Iva = 10m,
                             Total = 5000m
@@ -502,7 +508,7 @@ namespace KioscoInformaticoBackend.Migrations
                             Id = 3,
                             ClienteId = 3,
                             Eliminado = false,
-                            Fecha = new DateTime(2024, 10, 14, 22, 20, 15, 362, DateTimeKind.Local).AddTicks(7180),
+                            Fecha = new DateTime(2024, 10, 30, 15, 40, 7, 665, DateTimeKind.Local).AddTicks(6954),
                             FormaPago = 2,
                             Iva = 21m,
                             Total = 8000m
@@ -530,7 +536,7 @@ namespace KioscoInformaticoBackend.Migrations
             modelBuilder.Entity("KioscoInformaticoServices.Models.DetalleCompra", b =>
                 {
                     b.HasOne("KioscoInformaticoServices.Models.Compra", "Compra")
-                        .WithMany()
+                        .WithMany("Detallecompra")
                         .HasForeignKey("CompraId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -555,7 +561,7 @@ namespace KioscoInformaticoBackend.Migrations
                         .IsRequired();
 
                     b.HasOne("KioscoInformaticoServices.Models.Venta", "Venta")
-                        .WithMany()
+                        .WithMany("DetallesVenta")
                         .HasForeignKey("VentaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -583,6 +589,16 @@ namespace KioscoInformaticoBackend.Migrations
                         .IsRequired();
 
                     b.Navigation("Cliente");
+                });
+
+            modelBuilder.Entity("KioscoInformaticoServices.Models.Compra", b =>
+                {
+                    b.Navigation("Detallecompra");
+                });
+
+            modelBuilder.Entity("KioscoInformaticoServices.Models.Venta", b =>
+                {
+                    b.Navigation("DetallesVenta");
                 });
 #pragma warning restore 612, 618
         }

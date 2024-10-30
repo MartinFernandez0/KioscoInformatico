@@ -6,12 +6,12 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>15.52304cm</Width>
+              <Width>16.51cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.67056cm</Height>
+              <Height>1.02333cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -32,10 +32,10 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Id</rd:DefaultName>
-                          <Top>0.07056cm</Top>
-                          <Left>0.91722cm</Left>
+                          <Top>0.22049cm</Top>
+                          <Left>0.28787cm</Left>
                           <Height>0.6cm</Height>
-                          <Width>2.5cm</Width>
+                          <Width>1.33583cm</Width>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -61,10 +61,10 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Nombre</rd:DefaultName>
-                          <Top>0.07056cm</Top>
-                          <Left>4.18042cm</Left>
+                          <Top>0.22049cm</Top>
+                          <Left>6.66433cm</Left>
                           <Height>0.6cm</Height>
-                          <Width>10.68444cm</Width>
+                          <Width>2.5cm</Width>
                           <ZIndex>1</ZIndex>
                           <Style>
                             <Border>
@@ -103,10 +103,9 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DSLocalidades</DataSetName>
-        <Top>0.10583cm</Top>
-        <Left>0.57009cm</Left>
-        <Height>0.67056cm</Height>
-        <Width>15.52304cm</Width>
+        <Top>0.17639cm</Top>
+        <Height>1.02333cm</Height>
+        <Width>16.51cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -114,21 +113,20 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>0.34722in</Height>
+    <Height>0.51622in</Height>
     <Style />
   </Body>
   <Width>6.5in</Width>
   <Page>
     <PageHeader>
-      <Height>2.86342cm</Height>
+      <Height>2.30188cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
         <Line Name="Line1">
-          <Top>2.08703cm</Top>
-          <Left>0.48189cm</Left>
+          <Top>1.235cm</Top>
           <Height>0cm</Height>
-          <Width>15.67625cm</Width>
+          <Width>16.51cm</Width>
           <Style>
             <Border>
               <Style>Solid</Style>
@@ -144,9 +142,8 @@
                 <TextRun>
                   <Value>LISTA DE LOCALIDADES</Value>
                   <Style>
-                    <FontStyle>Italic</FontStyle>
-                    <FontFamily>Arial Narrow</FontFamily>
-                    <FontSize>18pt</FontSize>
+                    <FontFamily>Bauhaus 93</FontFamily>
+                    <FontSize>28pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
@@ -155,10 +152,9 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
-          <Top>1.02842cm</Top>
-          <Left>4.75051cm</Left>
-          <Height>1.05861cm</Height>
-          <Width>6.48639cm</Width>
+          <Left>2.35162cm</Left>
+          <Height>1.12917cm</Height>
+          <Width>10.62271cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
@@ -170,11 +166,10 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
-        <Line Name="Line3">
-          <Top>2.65176cm</Top>
-          <Left>0.48189cm</Left>
+        <Line Name="Line2">
+          <Top>2.23132cm</Top>
           <Height>0cm</Height>
-          <Width>15.67625cm</Width>
+          <Width>16.51cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
@@ -182,25 +177,25 @@
             </Border>
           </Style>
         </Line>
-        <Textbox Name="Textbox5">
+        <Textbox Name="Textbox6">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
           <Paragraphs>
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Código</Value>
+                  <Value>Codigo</Value>
                   <Style />
                 </TextRun>
               </TextRuns>
               <Style />
             </Paragraph>
           </Paragraphs>
-          <rd:DefaultName>Textbox5</rd:DefaultName>
-          <Top>2.08703cm</Top>
-          <Left>1.48731cm</Left>
-          <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
+          <rd:DefaultName>Textbox6</rd:DefaultName>
+          <Top>1.34084cm</Top>
+          <Left>0.28787cm</Left>
+          <Height>0.56734cm</Height>
+          <Width>1.33583cm</Width>
           <ZIndex>3</ZIndex>
           <Style>
             <Border>
@@ -212,7 +207,7 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
-        <Textbox Name="Textbox6">
+        <Textbox Name="Textbox7">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
           <Paragraphs>
@@ -226,11 +221,11 @@
               <Style />
             </Paragraph>
           </Paragraphs>
-          <rd:DefaultName>Textbox5</rd:DefaultName>
-          <Top>2.12231cm</Top>
-          <Left>4.75051cm</Left>
-          <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
+          <rd:DefaultName>Textbox6</rd:DefaultName>
+          <Top>1.34084cm</Top>
+          <Left>6.66433cm</Left>
+          <Height>0.56734cm</Height>
+          <Width>1.94437cm</Width>
           <ZIndex>4</ZIndex>
           <Style>
             <Border>
@@ -250,15 +245,14 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>2.18722cm</Height>
+      <Height>1.52287cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
-        <Line Name="Line2">
-          <Top>0.34982cm</Top>
-          <Left>0.41687cm</Left>
+        <Line Name="Line3">
+          <Top>0.42016cm</Top>
           <Height>0cm</Height>
-          <Width>15.67625cm</Width>
+          <Width>16.51cm</Width>
           <Style>
             <Border>
               <Style>Solid</Style>
@@ -272,7 +266,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>página:</Value>
+                  <Value>Pagina:</Value>
                   <Style />
                 </TextRun>
                 <TextRun>
@@ -284,10 +278,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>PageNumber</rd:DefaultName>
-          <Top>0.67cm</Top>
-          <Left>11.85898cm</Left>
+          <Top>0.7112cm</Top>
+          <Left>12.68708cm</Left>
           <Height>0.6cm</Height>
-          <Width>4.29917cm</Width>
+          <Width>3.82292cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
@@ -322,7 +316,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>a5e8f5dc-52ed-45cb-932c-99a96ce66d59</rd:DataSourceID>
+      <rd:DataSourceID>657c947e-6d18-4ee8-9f48-7a086ff341bb</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -343,7 +337,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>KioscoInformaticoDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\alera\source\repos\Kiosco\KioscoInformaticoDesktop\DataSet\KioscoInformaticoDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\Usuario\source\repos\Kiosco\KioscoInformaticoDesktop\DataSet\KioscoInformaticoDataSet.xsd</rd:SchemaPath>
         <rd:TableName>DSLocalidades</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
@@ -352,5 +346,5 @@
     </DataSet>
   </DataSets>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>91f5bbe6-e5ba-4125-bd7e-2e6a863dc3ca</rd:ReportID>
+  <rd:ReportID>e94f55d1-e310-40fd-8c32-da16eb0f98ea</rd:ReportID>
 </Report>

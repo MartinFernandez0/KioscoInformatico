@@ -13,6 +13,8 @@ public partial class DetalleCompra
 
     public int Cantidad { get; set; }
 
+    public int Subtotal { get; set; }
+
     public int CompraId { get; set; }
 
     public virtual Compra Compra { get; set; } = null!;

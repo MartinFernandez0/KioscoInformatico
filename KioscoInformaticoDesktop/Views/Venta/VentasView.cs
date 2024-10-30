@@ -8,7 +8,7 @@ using System.Diagnostics;
 
 namespace KioscoInformaticoDesktop.GenerateCompraView
 {
-    public partial class RegistroVentaView : Form
+    public partial class VentasView : Form
     {
         ClienteService clienteService = new ClienteService();
         ProductoService productoService = new ProductoService();
@@ -19,7 +19,7 @@ namespace KioscoInformaticoDesktop.GenerateCompraView
 
 
 
-        public RegistroVentaView()
+        public VentasView()
         {
             InitializeComponent();
             AjustePantalla();

@@ -1,6 +1,6 @@
 ﻿namespace KioscoInformaticoDesktop.GenerateCompraView
 {
-    partial class RegistroVentaView
+    partial class VentasView
     {
         /// <summary>
         /// Required designer variable.
