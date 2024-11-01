@@ -1,4 +1,4 @@
-using KioscoInformaticoApp.ViewModels.Productos;
+using KioscoInformaticoApp.ViewModels;
 using KioscoInformaticoServices.Models;
 
 namespace KioscoInformaticoApp.Views;
@@ -9,11 +9,10 @@ public partial class AddEditProductoView : ContentPage
 	{
 		InitializeComponent();
 	}
-    public AddEditProductoView(Producto productoAEditar)
+    public AddEditProductoView(Producto producto)
     {
         InitializeComponent();
-        var viemodel = this.BindingContext as AddEditProductoViewModel;
-        viemodel.editProduct = productoAEditar;
-
+        var viewModel = this.BindingContext as AddEditProductoViewModel;
+        viewModel.EditProduct = producto;
     }
 }

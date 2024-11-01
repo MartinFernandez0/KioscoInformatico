@@ -1,5 +1,10 @@
 ﻿@page "/localidades"
 @inject IGenericService<Localidad> LocalidadService
+
+@*Objeto para imprimir en la consola JS *@
+@inject ILogger<Localidades> logger
+@using System.Diagnostics
+
 @inject NavigationManager NavigationManager
 @inject SweetAlertService SweetAlert
 
@@ -45,6 +50,7 @@ else
     protected override async Task OnInitializedAsync()
     {
         localidades = await LocalidadService.GetAllAsync();
+        logger.LogInformation($"Localidades obtenidas: {localidades?.Count}");
     }
     public void AgregarLocalidad()
     {

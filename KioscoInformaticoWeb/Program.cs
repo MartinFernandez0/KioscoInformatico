@@ -4,6 +4,7 @@ using KioscoInformaticoWeb;
 using KioscoInformaticoServices.Interfaces;
 using KioscoInformaticoServices.Services;
 using CurrieTechnologies.Razor.SweetAlert2;
+using KioscoInformaticoWeb.Services;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -13,6 +14,7 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 builder.Services.AddScoped(typeof(IGenericService<>), typeof(GenericService<>));
 builder.Services.AddScoped<IClienteService, ClienteService>();
 builder.Services.AddScoped<ILocalidadService, LocalidadService>();
+builder.Services.AddScoped<FirebaseAuthService>();
 
 builder.Services.AddSweetAlert2();
 

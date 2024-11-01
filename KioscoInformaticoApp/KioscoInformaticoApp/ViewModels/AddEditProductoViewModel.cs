@@ -1,5 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.Messaging;
-using KioscoInformaticoApp.Class;
+using KioscoInformaticoApp.Utils;
 using KioscoInformaticoServices.Models;
 using KioscoInformaticoServices.Services;
 using System;
@@ -8,19 +8,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KioscoInformaticoApp.ViewModels.Productos
+namespace KioscoInformaticoApp.ViewModels
 {
     public class AddEditProductoViewModel : ObjectNotification
     {
         ProductoService productoService = new ProductoService();
-        private Producto EditProduct;
-
-        public Producto editProduct
+        private Producto editProduct;
+        public Producto EditProduct
         {
-            get { return EditProduct; }
+            get { return editProduct; }
             set
             {
-                EditProduct = value;
+                editProduct = value;
                 OnPropertyChanged();
                 SettingData();
             }
@@ -28,13 +27,12 @@ namespace KioscoInformaticoApp.ViewModels.Productos
 
         private void SettingData()
         {
-            Nombre = EditProduct.Nombre;
-            Precio = EditProduct.Precio;
-            Oferta = EditProduct.Oferta;
+            Nombre = editProduct.Nombre;
+            Precio = editProduct.Precio;
+            Oferta = editProduct.Oferta;
         }
 
         private string nombre;
-
         public string Nombre
         {
             get { return nombre; }
@@ -46,7 +44,6 @@ namespace KioscoInformaticoApp.ViewModels.Productos
         }
 
         private decimal precio;
-
         public decimal Precio
         {
             get { return precio; }
@@ -58,7 +55,6 @@ namespace KioscoInformaticoApp.ViewModels.Productos
         }
 
         private bool oferta;
-
         public bool Oferta
         {
             get { return oferta; }
@@ -70,7 +66,6 @@ namespace KioscoInformaticoApp.ViewModels.Productos
         }
 
         public Command SaveProductCommand { get; }
-
         public AddEditProductoViewModel()
         {
             SaveProductCommand = new Command(async () => await SaveProduct());
@@ -78,25 +73,24 @@ namespace KioscoInformaticoApp.ViewModels.Productos
 
         private async Task SaveProduct()
         {
-            if (EditProduct != null)
+            if (editProduct != null)
             {
-                editProduct.Nombre = Nombre;
-                editProduct.Precio = Precio;
-                editProduct.Oferta = Oferta;
-                await productoService.UpdateAsync(EditProduct);
+                editProduct.Nombre = this.Nombre;
+                editProduct.Precio = this.Precio;
+                editProduct.Oferta = this.Oferta;
+                await productoService.UpdateAsync(editProduct);
             }
             else
             {
-                editProduct = new Producto
+                var producto = new Producto()
                 {
-                    Nombre = Nombre,
-                    Precio = Precio,
-                    Oferta = Oferta
+                    Nombre = this.Nombre,
+                    Precio = this.Precio,
+                    Oferta = this.Oferta
                 };
-                await productoService.AddAsync(EditProduct);
+                await productoService.UpdateAsync(producto);
             }
+            WeakReferenceMessenger.Default.Send(new Message("CerrarVentana"));
         }
     }
 }
-
-

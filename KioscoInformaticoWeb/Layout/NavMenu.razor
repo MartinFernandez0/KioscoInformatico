@@ -1,4 +1,7 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿@inject NavigationManager NavigationManager
+@inject FirebaseAuthService FirebaseAuthService
+
+<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">KioscoInformaticoWeb</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
@@ -14,38 +17,38 @@
                 <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
             </NavLink>
         </div>
+
+        @if (IsAuthenticated)
+        {
+            @* Localidades *@
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="localidades">
+                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Localidades
+                </NavLink>
+            </div>
+
+             @* Clientes *@
+            <div class="nav-item px-3">
+                 <NavLink class="nav-link" href="clientes">
+                     <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Clientes
+                 </NavLink>
+            </div>
+
+            @* Productos *@
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="productos">
+                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Productos
+                </NavLink>
+            </div>
+            
+        }
+
+        @* Login *@
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
+            <NavLink class="nav-link" href="login">
+                <span class="bi bi-login" aria-hidden="true"></span> @TextoLogin
             </NavLink>
         </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="weather">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
-            </NavLink>
-        </div>
-
-        @* Localidades *@
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="localidades">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Localidades
-            </NavLink>
-        </div>
-
-         @* Clientes *@
-        <div class="nav-item px-3">
-             <NavLink class="nav-link" href="clientes">
-                 <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Clientes
-             </NavLink>
-        </div>
-
-        @* Productos *@
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="productos">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Productos
-            </NavLink>
-        </div>
-
 
     </nav>
 </div>
@@ -53,11 +56,26 @@
 
 @code {
     private bool collapseNavMenu = true;
+    private bool IsAuthenticated = false;
+
+    private string TextoLogin => IsAuthenticated ? "Cerrar Sesión" : "Iniciar Sesión";
 
     private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
     private void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        IsAuthenticated = await FirebaseAuthService.IsUserAuthenticated();
+        FirebaseAuthService.OnChangeLogin += ChequeoEstadoLogin;
+    }
+
+    private async void ChequeoEstadoLogin()
+    {
+        IsAuthenticated = await FirebaseAuthService.IsUserAuthenticated();
+        StateHasChanged();
     }
 }

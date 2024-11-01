@@ -1,4 +1,4 @@
-using KioscoInformaticoApp.ViewModels.Productos;
+using KioscoInformaticoApp.ViewModels;
 
 namespace KioscoInformaticoApp.Views;
 
@@ -17,7 +17,6 @@ public partial class ProductosView : ContentPage
         //{
         viewmodel.ObtenerProductos();
         viewmodel.SelectedProducto = null;
-
         //}
     }
 }

@@ -1,6 +1,4 @@
-﻿using CommunityToolkit.Mvvm.Messaging;
-using KioscoInformaticoApp.Class;
-using KioscoInformaticoApp.Views;
+﻿using KioscoInformaticoApp.Views;
 
 namespace KioscoInformaticoApp
 {
@@ -10,11 +8,9 @@ namespace KioscoInformaticoApp
         {
             InitializeComponent();
 
-            //MainPage = new AppShell();
-            MainPage = new NavigationPage(new IniciarSesionView());
-           
+           // MainPage = new AppShell();
+           //MainPage = new ProductosView();
+           MainPage = new NavigationPage(new IniciarSesionView());
         }
-
-        
     }
 }
