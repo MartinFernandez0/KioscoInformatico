@@ -124,6 +124,6 @@
     <value>https://localhost:7258/api/</value>
   </data>
   <data name="Remoto" xml:space="preserve">
-    <value>False</value>
+    <value>true</value>
   </data>
 </root>
