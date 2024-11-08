@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:KioscoInformaticoApp.ViewModels"
              x:Class="KioscoInformaticoApp.Views.ProductosEnOferta"
-             Title="Ofertas">
+             Title="Ofertas"
+             NavigationPage.HasNavigationBar="False">
     
     <ContentPage.BindingContext>
         <viewModels:ProductosEnOfertaViewModel />

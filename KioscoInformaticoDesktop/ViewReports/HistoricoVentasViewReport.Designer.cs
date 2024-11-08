@@ -1,6 +1,6 @@
 ﻿namespace KioscoInformaticoDesktop.ViewReports
 {
-    partial class FACVentasViewReport
+    partial class HistoricoVentasViewReport
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,14 @@
         {
             SuspendLayout();
             // 
-            // FACVentasViewReport
+            // HistoricoVentasViewReport
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Name = "FACVentasViewReport";
-            Text = "FACVentasViewReport";
-            Load += FACVentasViewReport_Load;
+            Name = "HistoricoVentasViewReport";
+            Text = "HistoricoVentasViewReport";
+            Load += HistoricoVentasViewReport_Load;
             ResumeLayout(false);
         }
 

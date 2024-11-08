@@ -17,4 +17,10 @@
     <ProjectReference Include="..\KioscoInformaticoServices\KioscoInformaticoServices.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Pages\login\Signin.razor">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
+  </ItemGroup>
+
 </Project>

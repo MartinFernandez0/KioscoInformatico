@@ -28,8 +28,6 @@ namespace KioscoInformaticoApp.ViewModels
             }
         }
 
-        //porque hacemos esto, porque lo dijo Gabriel
-        //https://chatgpt.com/share/9ab527ab-34a6-426c-b7a7-362c38e460a7
         private bool _isRefreshing;
         public bool IsRefreshing
         {
@@ -86,13 +84,24 @@ namespace KioscoInformaticoApp.ViewModels
 
         private async Task EditarProducto()
         {
-            WeakReferenceMessenger.Default.Send(new Message("EditarProducto") { ProductoAEditar = SelectedProducto});
-            EditarProductoCommand.ChangeCanExecute();
+            var navigationParameters = new ShellNavigationQueryParameters
+            {
+                { "ProductoAEditar", SelectedProducto }
+            };
+            await Shell.Current.GoToAsync($"AgregarEditarProducto", navigationParameters);
+            //WeakReferenceMessenger.Default.Send(new Message("EditarProducto") { ProductoAEditar = SelectedProducto});
+            //EditarProductoCommand.ChangeCanExecute();
         }
 
         private async Task AgregarProducto()
-        {
-            WeakReferenceMessenger.Default.Send(new Message("AgregarProducto"));
+        { 
+            var navigationParameters = new ShellNavigationQueryParameters
+            {
+                { "ProductoAEditar", null }
+            };
+            await Shell.Current.GoToAsync($"AgregarEditarProducto", navigationParameters);
+
+            //WeakReferenceMessenger.Default.Send(new Message("AgregarProducto"));
         }
 
         private async Task FiltarProductos()

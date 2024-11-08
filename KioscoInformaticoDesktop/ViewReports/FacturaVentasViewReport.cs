@@ -1,7 +1,6 @@
 ﻿using KioscoInformaticoServices.Models;
 using KioscoInformaticoServices.Services;
 using Microsoft.Reporting.WinForms;
-using Microsoft.ReportingServices.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,61 +13,47 @@ using System.Windows.Forms;
 
 namespace KioscoInformaticoDesktop.ViewReports
 {
-    public partial class FACVentasViewReport : Form
+    public partial class FacturaVentasViewReport : Form
     {
         ReportViewer reporte;
         private Venta? nuevaVenta;
 
-        public FACVentasViewReport()
+        //GenericService<DetalleVenta> detalleVentaService = new GenericService<DetalleVenta>();
+
+        public FacturaVentasViewReport()
         {
             InitializeComponent();
             reporte = new ReportViewer();
-            reporte.Dock = DockStyle.Fill;
-            Controls.Add(reporte);
 
-        }
-
-        public FACVentasViewReport(Venta? nuevaVenta)
-        {
-            InitializeComponent();
-            reporte = new ReportViewer();
             reporte.Dock = DockStyle.Fill;
             Controls.Add(reporte);
         }
 
-        private void FACVentasViewReport_Load(object sender, EventArgs e)
+        public FacturaVentasViewReport(Venta? nuevaVenta)
+        {
+            
+            InitializeComponent();
+            this.nuevaVenta = nuevaVenta;
+            reporte = new ReportViewer();
+
+            reporte.Dock = DockStyle.Fill;
+            Controls.Add(reporte);
+        }
+
+        private void FacturaVentasViewReport_Load(object sender, EventArgs e)
         {
             reporte.LocalReport.ReportEmbeddedResource = "KioscoInformaticoDesktop.Reports.FacturaVentaReport.rdlc";
+            var venta = new List<object> { new { Id = nuevaVenta.Id, Fecha = nuevaVenta.Fecha, NombreCliente = nuevaVenta.Cliente.Nombre, Iva = nuevaVenta.Iva, FormaPago = nuevaVenta.FormaPago.ToString(), Total = nuevaVenta.Total } } ;
+            reporte.LocalReport.DataSources.Add(new ReportDataSource("DSVenta", venta));
 
-            var venta = new
-            {
-                id = nuevaVenta.Id,
-                fecha = nuevaVenta.Fecha,
-                cliente = nuevaVenta.Cliente.Nombre,
-                formaDePago = nuevaVenta.FormaPago,
-                total = nuevaVenta.Total
-            };
-
-            var detallesVenta = nuevaVenta.DetallesVenta.Select(details => new
-            {
-                producto = details.Producto.Nombre,
-                precio = details.PrecioUnitario,
-                cantidad = details.Cantidad,
-                subtotal = details.SubTotal
-            });
-
-
-            reporte.LocalReport.DataSources.Add(new ReportDataSource("DSVentas", venta));
-            reporte.LocalReport.DataSources.Add(new ReportDataSource("DSDetalleVenta", detallesVenta));
+            var detallesVenta = nuevaVenta.Detallesventa.Select(dv => new { NombreProducto = dv.Producto.Nombre, PrecioUnitario = dv.PrecioUnitario, Cantidad = dv.Cantidad, SubTotal = dv.Subtotal });
+            reporte.LocalReport.DataSources.Add(new ReportDataSource("DSDetallesVenta", detallesVenta));
 
             reporte.SetDisplayMode(DisplayMode.PrintLayout);
-
-            //ponemos el zoom al 100%
+            //definimos zoom 100%
             reporte.ZoomMode = ZoomMode.Percent;
             reporte.ZoomPercent = 100;
-
             reporte.RefreshReport();
-
         }
     }
 }

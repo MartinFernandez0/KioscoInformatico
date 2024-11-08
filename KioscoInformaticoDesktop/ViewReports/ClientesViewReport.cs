@@ -29,15 +29,12 @@ namespace KioscoInformaticoDesktop.ViewReports
         {
             reporte.LocalReport.ReportEmbeddedResource = "KioscoInformaticoDesktop.Reports.ClientesReport.rdlc";
             var clientes = await clienteService.GetAllAsync();
-            reporte.LocalReport.DataSources.Add(new ReportDataSource("DSClientes", clientes));
-
+            reporte.LocalReport.DataSources.Add(new ReportDataSource("DataSetClientes", clientes));
             reporte.SetDisplayMode(DisplayMode.PrintLayout);
-
+            //definimos zoom 100%
             reporte.ZoomMode = ZoomMode.Percent;
             reporte.ZoomPercent = 100;
-
             reporte.RefreshReport();
-
         }
     }
 }

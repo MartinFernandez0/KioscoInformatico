@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:KioscoInformaticoApp.ViewModels"
              x:Class="KioscoInformaticoApp.Views.AddEditProductoView"
-             Title="AddEditProductoView">
+             Title="AddEditProductoView"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.BindingContext>
         <viewModels:AddEditProductoViewModel />
     </ContentPage.BindingContext>
@@ -16,8 +17,11 @@
                Text="{Binding Nombre}"
                HorizontalOptions="Center"
                VerticalOptions="Center"/>
+        <Label Text="Precio del producto :$"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
         <Entry Placeholder="Precio del producto"
-               Text="{Binding Precio}"
+               Text="{Binding Precio, StringFormat='{}{0:F2}'}"
                HorizontalOptions="Center"
                VerticalOptions="Center"/>
         <CheckBox IsChecked="{Binding Oferta}"

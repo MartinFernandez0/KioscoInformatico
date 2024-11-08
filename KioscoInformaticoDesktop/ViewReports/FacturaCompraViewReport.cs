@@ -12,12 +12,12 @@ using System.Windows.Forms;
 
 namespace KioscoInformaticoDesktop.ViewReports
 {
-    public partial class FACCompraViewReport : Form
+    public partial class FacturaCompraViewReport : Form
     {
         ReportViewer reporte;
         private Compra? nuevaCompra;
 
-        public FACCompraViewReport()
+        public FacturaCompraViewReport()
         {
             InitializeComponent();
             reporte = new ReportViewer();
@@ -26,7 +26,7 @@ namespace KioscoInformaticoDesktop.ViewReports
             Controls.Add(reporte);
         }
 
-        public FACCompraViewReport(Compra? nuevaCompra)
+        public FacturaCompraViewReport(Compra? nuevaCompra)
         {
             InitializeComponent();
             this.nuevaCompra = nuevaCompra;
@@ -40,10 +40,10 @@ namespace KioscoInformaticoDesktop.ViewReports
         private void FacturaCompraViewReport_Load(object sender, EventArgs e)
         {
             reporte.LocalReport.ReportEmbeddedResource = "KioscoInformaticoDesktop.Reports.FacturaCompraReport.rdlc";
-            var compra = new List<object> { new { Id = nuevaCompra.Id, Fecha = nuevaCompra.Fecha, NombreCliente = nuevaCompra.Proveedor.Nombre, Iva = nuevaCompra.Iva, FormaPago = nuevaCompra.FormaDePago, Total = nuevaCompra.Total } };
+            var compra = new List<object> { new { Id = nuevaCompra.Id, Fecha = nuevaCompra.Fecha, Proveedor = nuevaCompra.Proveedor.Nombre, Iva = nuevaCompra.Iva, FormaPago = nuevaCompra.FormaDePago.ToString(), Total = nuevaCompra.Total } };
             reporte.LocalReport.DataSources.Add(new ReportDataSource("DSCompras", compra));
 
-            var detallesCompra = nuevaCompra.Detallecompra.Select(dc => new { NombreProducto = dc.Producto.Nombre, PrecioUnitario = dc.PrecioUnitario, Cantidad = dc.Cantidad, SubTotal = dc.Subtotal });
+            var detallesCompra = nuevaCompra.Detallescompra.Select(dc => new { NombreProducto = dc.Producto.Nombre, PrecioUnitario = dc.PrecioUnitario, Cantidad = dc.Cantidad, SubTotal = dc.Subtotal });
             reporte.LocalReport.DataSources.Add(new ReportDataSource("DSDetallesCompra", detallesCompra));
 
             reporte.SetDisplayMode(DisplayMode.PrintLayout);

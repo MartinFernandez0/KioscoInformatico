@@ -31,6 +31,7 @@
             menuStrip1 = new MenuStrip();
             iconMenuItem1 = new FontAwesome.Sharp.IconMenuItem();
             MenuItemVentas = new FontAwesome.Sharp.IconMenuItem();
+            MenuItemCompras = new FontAwesome.Sharp.IconMenuItem();
             iconMenuItem3 = new FontAwesome.Sharp.IconMenuItem();
             menuItemLocalidades = new FontAwesome.Sharp.IconMenuItem();
             menuItemProductos = new FontAwesome.Sharp.IconMenuItem();
@@ -42,7 +43,7 @@
             MenuItemClientesReport = new FontAwesome.Sharp.IconMenuItem();
             MenuItemComprasReport = new FontAwesome.Sharp.IconMenuItem();
             MenuItemVentasReport = new FontAwesome.Sharp.IconMenuItem();
-            MenuItemCompras = new FontAwesome.Sharp.IconMenuItem();
+            iconToolStripButton1 = new FontAwesome.Sharp.IconToolStripButton();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -81,6 +82,16 @@
             MenuItemVentas.Text = "Ventas Registros";
             MenuItemVentas.Click += MenuItemVentas_Click;
             // 
+            // MenuItemCompras
+            // 
+            MenuItemCompras.IconChar = FontAwesome.Sharp.IconChar.None;
+            MenuItemCompras.IconColor = Color.Black;
+            MenuItemCompras.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            MenuItemCompras.Name = "MenuItemCompras";
+            MenuItemCompras.Size = new Size(184, 26);
+            MenuItemCompras.Text = "Compras Registros";
+            MenuItemCompras.Click += MenuItemCompras_Click;
+            // 
             // iconMenuItem3
             // 
             iconMenuItem3.DropDownItems.AddRange(new ToolStripItem[] { menuItemLocalidades, menuItemProductos, menuItemClientes, menuItemProveedores });
@@ -100,7 +111,7 @@
             menuItemLocalidades.IconColor = Color.Black;
             menuItemLocalidades.IconFont = FontAwesome.Sharp.IconFont.Auto;
             menuItemLocalidades.Name = "menuItemLocalidades";
-            menuItemLocalidades.Size = new Size(139, 22);
+            menuItemLocalidades.Size = new Size(184, 26);
             menuItemLocalidades.Text = "Localidades";
             menuItemLocalidades.Click += menuItemLocalidades_Click;
             // 
@@ -110,7 +121,7 @@
             menuItemProductos.IconColor = Color.Black;
             menuItemProductos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             menuItemProductos.Name = "menuItemProductos";
-            menuItemProductos.Size = new Size(139, 22);
+            menuItemProductos.Size = new Size(184, 26);
             menuItemProductos.Text = "Productos";
             menuItemProductos.Click += menuItemProductos_Click;
             // 
@@ -120,7 +131,7 @@
             menuItemClientes.IconColor = Color.Black;
             menuItemClientes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             menuItemClientes.Name = "menuItemClientes";
-            menuItemClientes.Size = new Size(139, 22);
+            menuItemClientes.Size = new Size(184, 26);
             menuItemClientes.Text = "Clientes";
             menuItemClientes.Click += menuItemClientes_Click;
             // 
@@ -130,7 +141,7 @@
             menuItemProveedores.IconColor = Color.Black;
             menuItemProveedores.IconFont = FontAwesome.Sharp.IconFont.Auto;
             menuItemProveedores.Name = "menuItemProveedores";
-            menuItemProveedores.Size = new Size(139, 22);
+            menuItemProveedores.Size = new Size(184, 26);
             menuItemProveedores.Text = "Proveedores";
             menuItemProveedores.Click += menuItemProveedores_Click;
             // 
@@ -164,7 +175,7 @@
             MenuItemLocalidadesReport.IconColor = Color.Black;
             MenuItemLocalidadesReport.IconFont = FontAwesome.Sharp.IconFont.Auto;
             MenuItemLocalidadesReport.Name = "MenuItemLocalidadesReport";
-            MenuItemLocalidadesReport.Size = new Size(136, 22);
+            MenuItemLocalidadesReport.Size = new Size(184, 26);
             MenuItemLocalidadesReport.Text = "Localidades";
             MenuItemLocalidadesReport.Click += MenuItemLocalidadesReport_Click;
             // 
@@ -174,7 +185,7 @@
             MenuItemClientesReport.IconColor = Color.Black;
             MenuItemClientesReport.IconFont = FontAwesome.Sharp.IconFont.Auto;
             MenuItemClientesReport.Name = "MenuItemClientesReport";
-            MenuItemClientesReport.Size = new Size(136, 22);
+            MenuItemClientesReport.Size = new Size(184, 26);
             MenuItemClientesReport.Text = "Clientes";
             MenuItemClientesReport.Click += MenuItemClientesReport_Click;
             // 
@@ -184,7 +195,7 @@
             MenuItemComprasReport.IconColor = Color.Black;
             MenuItemComprasReport.IconFont = FontAwesome.Sharp.IconFont.Auto;
             MenuItemComprasReport.Name = "MenuItemComprasReport";
-            MenuItemComprasReport.Size = new Size(136, 22);
+            MenuItemComprasReport.Size = new Size(184, 26);
             MenuItemComprasReport.Text = "Compras";
             // 
             // MenuItemVentasReport
@@ -193,18 +204,17 @@
             MenuItemVentasReport.IconColor = Color.Black;
             MenuItemVentasReport.IconFont = FontAwesome.Sharp.IconFont.Auto;
             MenuItemVentasReport.Name = "MenuItemVentasReport";
-            MenuItemVentasReport.Size = new Size(136, 22);
+            MenuItemVentasReport.Size = new Size(184, 26);
             MenuItemVentasReport.Text = "Ventas";
             // 
-            // MenuItemCompras
+            // iconToolStripButton1
             // 
-            MenuItemCompras.IconChar = FontAwesome.Sharp.IconChar.None;
-            MenuItemCompras.IconColor = Color.Black;
-            MenuItemCompras.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            MenuItemCompras.Name = "MenuItemCompras";
-            MenuItemCompras.Size = new Size(184, 26);
-            MenuItemCompras.Text = "Compras Registros";
-            MenuItemCompras.Click += MenuItemCompras_Click;
+            iconToolStripButton1.IconChar = FontAwesome.Sharp.IconChar.None;
+            iconToolStripButton1.IconColor = Color.Black;
+            iconToolStripButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconToolStripButton1.Name = "iconToolStripButton1";
+            iconToolStripButton1.Size = new Size(23, 23);
+            iconToolStripButton1.Text = "iconToolStripButton1";
             // 
             // MenuPrincipalView
             // 
@@ -240,5 +250,6 @@
         private FontAwesome.Sharp.IconMenuItem MenuItemComprasReport;
         private FontAwesome.Sharp.IconMenuItem MenuItemVentasReport;
         private FontAwesome.Sharp.IconMenuItem MenuItemCompras;
+        private FontAwesome.Sharp.IconToolStripButton iconToolStripButton1;
     }
 }
